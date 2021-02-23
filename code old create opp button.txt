@@ -1,0 +1,259 @@
+// mdfcount = processing_details.getJSON("mdfcount");
+campdetails = zoho.crm.getRecordById("Campaigns",campid.toLong());
+Campaign_Name = campdetails.getJSON("campdetails");
+Type = ifnull(campdetails.get("Type"),"");
+// camp_pipeline = ifnull(campdetails.get("Campaign_Pipeline"),"");
+if(Type == "Zoho Survey")
+{
+	Type = "Surveys";
+}
+// if(Type == "Zoho Campaigns")
+// {
+// 	Type = camp_pipeline;
+// }
+if(Type != "Promotional Campaigns")
+{
+	related = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),1,200);
+	info related.size();
+	related2 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),2,200);
+	// 	info related2.size();
+	related3 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),3,200);
+	related4 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),4,200);
+	related5 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),5,200);
+	related6 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),6,200);
+	related7 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),7,200);
+	related8 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),8,200);
+	related9 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),9,200);
+	related10 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),10,200);
+	related11 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),11,200);
+	related12 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),12,200);
+	related13 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),13,200);
+	related14 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),14,200);
+	related15 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),15,200);
+	related16 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),16,200);
+	related17 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),17,200);
+	related18 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),18,200);
+	related19 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),19,200);
+	related20 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),20,200);
+	related21 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),21,200);
+	// 	info related.size();
+	related22 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),22,200);
+	related23 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),23,200);
+	related24 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),24,200);
+	related25 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),25,200);
+	related26 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),26,200);
+	related27 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),27,200);
+	related28 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),28,200);
+	related29 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),29,200);
+	related30 = zoho.crm.getRelatedRecords("Contacts","Campaigns",campid.toLong(),30,200);
+	if(!related2.isEmpty())
+	{
+		related.addAll(related2.toList());
+	}
+	if(!related3.isEmpty())
+	{
+		related.addAll(related3.toList());
+	}
+	if(!related4.isEmpty())
+	{
+		related.addAll(related4.toList());
+	}
+	if(!related5.isEmpty())
+	{
+		related.addAll(related5.toList());
+	}
+	if(!related6.isEmpty())
+	{
+		related.addAll(related6.toList());
+	}
+	if(!related7.isEmpty())
+	{
+		related.addAll(related7.toList());
+	}
+	if(!related8.isEmpty())
+	{
+		related.addAll(related8.toList());
+	}
+	if(!related9.isEmpty())
+	{
+		related.addAll(related9.toList());
+	}
+	if(!related10.isEmpty())
+	{
+		related.addAll(related10.toList());
+	}
+	if(!related11.isEmpty())
+	{
+		related.addAll(related11.toList());
+	}
+	if(!related12.isEmpty())
+	{
+		related.addAll(related12.toList());
+	}
+	if(!related13.isEmpty())
+	{
+		related.addAll(related13.toList());
+	}
+	if(!related14.isEmpty())
+	{
+		related.addAll(related14.toList());
+	}
+	if(!related15.isEmpty())
+	{
+		related.addAll(related15.toList());
+	}
+	if(!related16.isEmpty())
+	{
+		related.addAll(related16.toList());
+	}
+	if(!related17.isEmpty())
+	{
+		related.addAll(related17.toList());
+	}
+	if(!related18.isEmpty())
+	{
+		related.addAll(related18.toList());
+	}
+	if(!related19.isEmpty())
+	{
+		related.addAll(related19.toList());
+	}
+	if(!related20.isEmpty())
+	{
+		related.addAll(related20.toList());
+	}
+	if(!related21.isEmpty())
+	{
+		related.addAll(related21.toList());
+	}
+	if(!related22.isEmpty())
+	{
+		related.addAll(related22.toList());
+	}
+	if(!related23.isEmpty())
+	{
+		related.addAll(related23.toList());
+	}
+	if(!related24.isEmpty())
+	{
+		related.addAll(related24.toList());
+	}
+	if(!related25.isEmpty())
+	{
+		related.addAll(related25.toList());
+	}
+	if(!related26.isEmpty())
+	{
+		related.addAll(related26.toList());
+	}
+	if(!related27.isEmpty())
+	{
+		related.addAll(related27.toList());
+	}
+	if(!related28.isEmpty())
+	{
+		related.addAll(related28.toList());
+	}
+	if(!related29.isEmpty())
+	{
+		related.addAll(related29.toList());
+	}
+	if(!related30.isEmpty())
+	{
+		related.addAll(related30.toList());
+	}
+	Product = ifnull(campdetails.get("Product"),"");
+	End_Date = ifnull(campdetails.get("End_Date"),"");
+	Campaign_Name = ifnull(campdetails.get("Campaign_Name"),"");
+	Product_amt = ifnull(campdetails.get("Product_Amount"),0);
+	// 	productn_Name = ifnull(campdetails.get("Product_Name").get("id"),"");
+	productn_Name1 = campdetails.getJSON("Product_Name");
+	if(!productn_Name1.isNull())
+	{
+		productn_Name = productn_Name1.getJSON("id");
+	}
+	else
+	{
+		productn_Name = "";
+	}
+	info Product_amt;
+	info related.size();
+	mdfcount = 0;
+	total_size = related.size();
+	cnt = 0;
+	bulk_create_list = list();
+	for each  rec in related
+	{
+		cnt = cnt + 1;
+		id = rec.get("id");
+		MDFID = id.toString() + "S" + campid.toString();
+		//conname = rec.get("Full_Name");
+		conname = ifnull(rec.get("First_Name"),"") + " " + ifnull(rec.get("Last_Name"),"");
+		conflag = rec.get("Contact_flag");
+		// 		accname = rec.get("Account_Name").get("name");
+		acc = rec.getJSON("Account_Name");
+		if(!acc.isNull())
+		{
+			accname = acc.getJSON("name");
+		}
+		else
+		{
+			accname = "";
+		}
+		data = Map();
+		data.put("Deal_Name",Campaign_Name + " - " + accname + " - " + conname);
+		data.put("Stage","Target");
+		data.put("Contact_Flag",conflag);
+		data.put("Type_Product",Type);
+		data.put("Product",Product);
+		data.put("Closing_Date",End_Date);
+		//Campaign_Sourcemap=map();
+		//Campaign_Sourcemap.put("name", Campaign_Name);
+		//Campaign_Sourcemap.put("id", campid);
+		data.put("Campaign_Source",{"id":campid});
+		data.put("Product_Name",{"id":productn_Name});
+		//data.put("Session_Name",{"id":msessionid});
+		data.put("Amount",Product_amt);
+		data.put("MDFID",MDFID);
+		data.put("Owner",MDFowenrID);
+		data.put("Created_by",MDFowenrID);
+		data.put("Contact_Name",rec.get("id"));
+		data.put("Campaign","Current Campaign");
+		Account_Name1 = rec.getJSON("Account_Name");
+		if(!Account_Name1.isNULL())
+		{
+			Account_ID = Account_Name1.getJSON("id");
+			data.put("Account_Name",Account_ID);
+		}
+		// 		data.put("Account_Name",ifnull(rec.get("Account_Name"),"").get("id"));
+		bulk_create_list.add(data);
+		if(cnt % 100 == 0 || cnt == total_size)
+		{
+			final = Map();
+			final.put("data",bulk_create_list);
+			final.put("trigger",{"workflow","blueprint"});
+			createrecord = invokeurl
+			[
+				url :"https://www.zohoapis.in/crm/v2/Deals"
+				type :POST
+				parameters:final.toString()
+				connection:"all_crm_function"
+			];
+			bulk_create_list.clear();
+			info createrecord;
+			info "Createrecord";
+		}
+	}
+	mp = Map();
+	mp.put("Name",Campaign_Name);
+	mp.put("campid",campid);
+	mp.put("compdate",compdate);
+	mp.put("cenddate",cenddate);
+	mp.put("MDFowenrID",MDFowenrID);
+	create_rec = zoho.crm.createRecord("Processing",mp,{"trigger":{"workflow"}});
+	info create_rec;
+	mdfoutput = "Function executed Successfully";
+}
+// 	info mdfoutput;
+// 	return mdfoutput;
+return mdfoutput;
