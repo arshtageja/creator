@@ -1,0 +1,98 @@
+offset = 0;
+num_list = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110};
+for each  num in num_list
+{
+	all_contacts = zoho.crm.getRecords("Contacts",offset,200,{"cvid":157972000007537171});
+	info all_contacts;
+	for each  get_rec in all_contacts
+	{
+		if(get_rec.getJSON("id") != null)
+		{
+			idf = get_rec.getJSON("id");
+			Employ = get_rec.getJSON("Experience_Information");
+			info Employ;
+			id_list = list();
+			if(Employ.isNull())
+			{
+				final = list();
+				acc_name_all = get_rec.getJSON("Account_Name");
+				acc_name = ifnull(acc_name_all.getJSON("name"),"");
+				desig_all = get_rec.getJSON("Designation_11");
+				if(desig_all != null)
+				{
+					desig_name = ifnull(desig_all.getJSON("name"),"");
+				}
+				else
+				{
+					desig_name = " ";
+				}
+				if(acc_name != null)
+				{
+					new_map = Map();
+					new_map.put("Serial_Number",1);
+					new_map.put("Past_Company",acc_name);
+					new_map.put("Past_Designation",desig_name);
+					new_map.put("Date_Modified",now);
+					final.add(new_map);
+					info final.isEmpty();
+					update1 = zoho.crm.updateRecord("Contacts",idf,{"Experience_Information":final});
+					info update1;
+				}
+			}
+			else
+			{
+				for each  i in Employ
+				{
+					id_list.add(i.get("id"));
+					last_his = i;
+				}
+				info id_list;
+				final = list();
+				for each  id_no in id_list
+				{
+					final.add({"id":id_no});
+				}
+				info final;
+				acc_name_all = get_rec.getJSON("Account_Name");
+				acc_name = ifnull(acc_name_all.getJSON("name"),"");
+				desig_all = get_rec.getJSON("Designation_11");
+				if(desig_all != null)
+				{
+					desig_name = ifnull(desig_all.getJSON("name"),"");
+				}
+				else
+				{
+					desig_name = null;
+				}
+				last_acc_name = last_his.getJSON("Past_Company");
+				last_desig = last_his.getJSON("Past_Designation");
+				info last_acc_name;
+				info last_desig;
+				if(last_acc_name != acc_name || last_desig != desig_name)
+				{
+					if(acc_name != null)
+					{
+						new_map = Map();
+						new_map.put("Serial_Number",id_list.size() + 1);
+						new_map.put("Past_Company",acc_name);
+						new_map.put("Past_Designation",desig_name);
+						new_map.put("Date_Modified",now);
+						final.add(new_map);
+						info final.isEmpty();
+						update1 = zoho.crm.updateRecord("Contacts",idf,{"Experience_Information":final});
+						info update1;
+					}
+				}
+			}
+			upd2 = zoho.crm.updateRecord("Contacts",get_rec.getJSON("id"),{"Capture_Employee_History":true});
+			info upd2;
+		}
+	}
+	offset = offset + 200;
+	if(all_contacts.size() < 200)
+	{
+		break;
+	}
+}
+// all_contacts=zoho.crm.getRecords("Contacts", 0, 1, {"cvid":157972000007537171});
+// info all_contacts;
